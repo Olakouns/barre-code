@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barcode Scanner</title>
+  <script src="https://cdn.jsdelivr.net/npm/quagga"></script>
+</head>
+<body>
+
+    <script>
+        Quagga.init({
+          inputStream: {
+            name: "Live",
+            type: "LiveStream",
+            target: document.querySelector('body'),
+            constraints: {
+              width: 640,
+              height: 480,
+              facingMode: "environment",
+            },
+          },
+          locator: {
+            patchSize: "medium",
+            halfSample: true,
+          },
+          numOfWorkers: navigator.hardwareConcurrency || 4,
+          decoder: {
+            readers: ["code_128_reader"],
+          },
+          locate: true,
+        }, function (err) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          Quagga.start();
+        });
+      </script>
+        <script>
+            Quagga.onDetected(function (result) {
+            console.log("Barcode detected and processed: ", result.codeResult);
+            // Handle the scanned barcode here
+            });
+        </script>
+        
+</body>
+</html>
