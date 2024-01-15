@@ -1,52 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barcode Scanner</title>
-  <script src="https://cdn.jsdelivr.net/npm/quagga"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <script src="quagga.min.js"></script>
+
 </head>
 <body>
-    <div id="content"></div>
-    <script>
-      let myDiv = document.getElementById('content');
-        Quagga.init({
-          inputStream: {
-            name: "Live",
-            type: "LiveStream",
-            target: document.querySelector('body'),
-            constraints: {
-              width: 640,
-              height: 480,
-              facingMode: "environment",
-            },
-          },
-          locator: {
-            patchSize: "medium",
-            halfSample: true,
-          },
-          numOfWorkers: navigator.hardwareConcurrency || 4,
-          decoder: {
-            readers: ["code_128_reader"],
-          },
-          locate: true,
-        }, function (err) {
-          if (err) {
-            myDiv.innerHTML = "Some error for Quagga" + err;
-            console.error(err);
-            return;
-          }
-          Quagga.start();
-          myDiv.innerHTML = "Quagga is started";
-        });
-      </script>
-        <script>
-            Quagga.onDetected(function (result) {
-            console.log("Barcode detected and processed: ", result.codeResult);
-            myDiv.innerHTML = "Quagga is detected something " + result.codeResult;
-            // Handle the scanned barcode here
-            });
-        </script>
-        
+    <main>
+        <div id = "result" class="info-message">
+            Try to scan to see the result
+        </div>
+        <div id="content"></div>
+    </main>
+
+    <script src="index.js"></script>
+    <script src="service-worker.js"></script>
 </body>
 </html>
