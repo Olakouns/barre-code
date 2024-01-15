@@ -3,7 +3,7 @@
     "name": "Barcode Reader PWA",
     "short_name": "Barcode Reader",
     "description": "A simple barcode reader Progressive Web App",
-    "start_url": "/index.html",
+    "start_url": "/",
     "background_color": "#ffffff",
     "theme_color": "#000000",
     "orientation": "any",
@@ -11,10 +11,13 @@
     "icons": [
         {
             "src": "/icon512.png",
-            "sizes": "512x512"
+            "sizes": "512x512 72x72 96x96 128x128 256x256"
+        },
+        {
+            "src": "/icon512.png",
+            "sizes": "any"
         }
     ],
-    "scope": "/",
     "permissions": [
       "camera"
     ]
