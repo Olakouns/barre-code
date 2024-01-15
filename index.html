@@ -32,7 +32,7 @@
           locate: true,
         }, function (err) {
           if (err) {
-            myDiv.innerHTML = "Some error for Quagga";
+            myDiv.innerHTML = "Some error for Quagga" + err;
             console.error(err);
             return;
           }
