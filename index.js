@@ -54,7 +54,14 @@ Quagga.init(
   }
 );
 
+let barrCodeIsDetected = false;
+
 Quagga.onDetected(function (result) {
+  if (barrCodeIsDetected) {
+    return;
+  }
+
+  barrCodeIsDetected = true;
   console.log("Barcode detected and processed: ", result.codeResult);
 
   let userResponse = confirm(
@@ -68,4 +75,6 @@ Quagga.onDetected(function (result) {
     Quagga.stop();
   }
   myDiv.innerHTML = "The detected barcode is: " + result.codeResult.code;
+  barrCodeIsDetected = false;
+  return;
 });
