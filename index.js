@@ -57,6 +57,7 @@ Quagga.init(
 let barrCodeIsDetected = false;
 
 Quagga.onDetected(function (result) {
+    
   if (barrCodeIsDetected) {
     return;
   }
