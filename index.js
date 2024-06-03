@@ -1,3 +1,17 @@
+if (navigator.geolocation) {   
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        console.log('Latitude: ' + latitude + ', Longitude: ' + longitude);
+        // Vérifiez si ces coordonnées sont dans la zone du showroom
+    }, function(error) {
+        console.error(error);
+        // console.error('Error occurred. Error code: ' + error.code);
+    });
+} else {
+    console.error('Geolocation is not supported by this browser.');
+}
+
 let myDiv = document.getElementById("result");
 
 function startInitiBarCode(params) {
