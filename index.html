@@ -7,6 +7,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
     <script src="quagga.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
 <body>
     <main>
@@ -15,12 +16,17 @@
         </div>
         <div id="content"></div>
     </main>
+    <!-- <div id="map" style="display: block !important;"></div> -->
 
-    <script src="index.js"></script>
-    <script>
+    <!-- <script>
         if('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
         }
-    </script>
+    </script> -->
+    <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ1NyIP9FBXmUmrXtC1gWqNt0yXdgBsf8&callback=initMap&v=weekly&language=ja&region=JP"
+      defer
+    ></script> -->
+    <script src="index.js"></script>
 </body>
 </html>
